@@ -1,0 +1,104 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="">
+        <div class="card mt-3 shadow">
+          <div class="card-body">
+            <form  method="POST">
+              {% csrf_token %}
+              <div class="text-center">
+                <h4>Register Here !!!</h4>
+              </div>
+              <div class="text-center">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 150px;">
+              </div>
+              <hr>
+              <div class="form-group">
+                <label for="">Username:</label>
+                {{form.username}}
+                {%if  form.errors.username %}
+                   <label class = 'text-danger'>{{ form.errors.username }}</label>
+
+                {% endif %}
+
+              </div>
+              <div class="form-group">
+                <label for="">Email:</label>
+                {{form.email}}
+
+                {%if  form.errors.email %}
+                   <label class = 'text-danger'>{{ form.errors.email }}</label>
+
+                {% endif %}
+
+
+              </div>
+
+              <div class="form-group">
+                <label for="">Password:</label>
+                {{form.password1}}
+
+                {%if  form.errors.password1 %}
+                   <label class = 'text-danger'>{{ form.errors.password1 }}</label>
+
+                {% endif %}
+
+
+              </div>
+
+              <div class="form-group">
+                <label for="">Conform Password:</label>
+                {{form.password2}}
+
+                {%if  form.errors.password2 %}
+                   <label class = 'text-danger'>{{ form.errors.password2 }}</label>
+
+                {% endif %}
+
+
+              </div>
+              <button type="submit" class ="btn float-end shadow btn-outline-success px-4 form-control">Register</button>
+
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+{% endblock content %}
+
+
+<!-- <form action="" method="post">
+  {% csrf_token %}
+  <h3 style="font-style:italic;">Signup Here</h3>
+
+  <label for="username">Username</label>
+  <input type="text" placeholder="Username" name="username" id="username" required>
+
+  <label for="email">Email</label>
+  <input type="email" placeholder="Email or Phone" name="email" id="email" required>
+
+  <label for="password1">Password</label>
+  <input type="password" placeholder="Password" id="password1" name="password1" required>
+
+
+  <label for="password2">Confrom Password</label>
+  <input type="password" placeholder="Confrom Password" id="password2" name="password2" required>
+  <button type="submit">Signup</button>
+  <a href="{% url 'login' %}" >I have already account</a>
+</form> -->

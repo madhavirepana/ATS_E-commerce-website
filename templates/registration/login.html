@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+<style media="screen">
+  .button {
+            margin-left: 93%;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+</style>
+{% block content %}
+<body style="background-image: url('path/to/your/image.jpg'); background-size: cover;">
+
+    <div class="form-container mb-3">
+      <div class="container">
+        <div class="background a">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card mt-3 shadow">
+              <div class="card-body">
+                <form method="POST">
+                  {% csrf_token %}
+                  <div class="text-center">
+                    <h4>Login Page</h4>
+                  </div>
+
+                  <hr>
+                  <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                  </div>
+                  <button type="submit" class="btn text-center shadow btn-success px-4">Login</button>
+                </form>
+                
+                <div class="text-center mt-3">
+                  <a href="{% url 'send_otp' %}" class="text-muted">Forgot Password?</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+        var down = document.getElementById("GFG");
+        $('.button').on('click', function () {
+            $('.outer').hide('login.html');
+        });
+    </script>
+</body>
+
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <h1>{{category_name.name}}</h1>
+      <hr>
+      <div class="row">
+        {% for item in products %}
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body text-center">
+              <a href="{% url 'productview' item.category.slug item.slug %}">
+                <div class="category-image">
+                  <img src="{{ item.product_image.url }}" alt="Product image" class="w-100" style="height: 200px;">
+                </div>
+                <label>{{item.description}}</label>
+               </a> 
+              <span class="text-danger float-start">Price: Rs {{item.selling_prices |stringformat:'d'}}</span>
+
+              <br> 
+              <!-- <div class="row mt-2">
+                <div class="col-md-6">
+                  {% csrf_token %}
+                  <input type="hidden" value="{{item.id}}" class="prod_id"> 
+                   <div class="input-group text-center mb-3" style='width:100px;'>
+                    <button class='input-group-text decrement-btn'>-</button> 
+
+                     <input type="text" name="quantity" class='form-control qty-input text-center' value='1'>
+                    <button class='input-group-text increment-btn'>+</button> 
+                  </div>
+                </div> 
+                {% if item.quantity > 0 %} 
+                 <br><button type="button" class='btn btn-primary float-start addToCartBtn' style="height: 40px;"><i
+                    class='fa fa-shopping-cart'></i>Add to cart </button> 
+                 {% endif %}
+                
+              </div> -->
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}

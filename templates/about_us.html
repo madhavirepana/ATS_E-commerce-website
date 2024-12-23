@@ -1,0 +1,60 @@
+
+{% extends 'main.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Your Online Store</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assuming you have a separate CSS file for styling -->
+</head>
+<body>
+  {% block content%}
+    <main>
+        <section id="banner">
+            <h1>About Us</h1>
+        </section>
+        <section id="story">
+            <div class="container">
+                <h2>Our Story</h2>
+                <p>Welcome to Your Online Store, where passion meets innovation. We started this journey with a simple idea: to provide top-quality products with exceptional service.</p>
+                <p>Founded in [year], we've grown from a small team working out of a garage to a global brand serving customers in over 50 countries.</p>
+                <img src="story-image.jpg" alt="Our Story" class="story-image">
+            </div>
+        </section>
+        <section id="mission">
+            <div class="container">
+                <h2>Our Mission</h2>
+                <p>At Your Online Store, our mission is to inspire and empower our customers to live their best lives by offering curated collections of products that enhance their everyday experiences.</p>
+                <p>From sustainable materials to cutting-edge technology, we're committed to delivering excellence in every product we offer.</p>
+                <img src="mission-image.jpg" alt="Our Mission" class="mission-image">
+            </div>
+        </section>
+        <section id="team">
+            <div class="container">
+                <h2>Meet the Team</h2>
+                <p>Our team is a diverse group of individuals united by a shared passion for innovation and customer satisfaction.</p>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="team-member1.jpg" alt="Team Member 1" class="team-member-image">
+                        <h3>John Doe</h3>
+                        <p>Co-Founder & CEO</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="team-member2.jpg" alt="Team Member 2" class="team-member-image">
+                        <h3>Jane Smith</h3>
+                        <p>Head of Operations</p>
+                    </div>
+                    <!-- Add more team members as needed -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Online Store. All rights reserved.</p>
+    </footer>
+    {% endblock %}
+</body>
+
+
+</html>

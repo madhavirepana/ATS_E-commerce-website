@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  {% include 'cdnlines.html' %}
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'owl.theme.default.min.css' %}">
+  <title>Doc</title>
+</head>
+<style media="screen">
+  a {
+
+    text-decoration: none;
+    text-color:white;
+
+  }
+
+  * {
+    font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif ;
+  }
+
+  .WhatsApp {
+    width: 30px;
+    margin-top: 20px;
+  }
+
+  footer {
+    background-color: #0ABAB5;
+    color: white;
+    font-size: 16px;
+  }
+  footer a{
+    color: ;
+  }
+</style>
+
+<body>
+  {% include 'navbar.html' %}
+  {% block content %}
+
+  {% endblock %}
+  
+  
+
+  <footer class="container-fluid mt-2">
+    <div class="container pt-5 pb-5">
+      <div class="row">
+        <div class="offset-md-2 col-md-3">
+          <!-- customer_service.html -->
+          <h5>Services</h5>
+          <a href="{% url 'contactus'%}">Contact Us</a><br>
+          <a href="{% url 'faq'%}">FAQ</a><br>
+          <a href="{% url 'feedback'%}">Feedback & Suggestions</a><br>
+        </div>
+        <div class="col-md-3">
+          <h5>Connect with Us</h5>
+          <a href="https://www.facebook.com"> Facebook</a><br>
+          <a href="https://twitter.com/?lang=en-in"> Twitter</a><br>
+          <a href="https://www.instagram.com/?hl=en"> Instagram</a><br>
+          <a href="https://web.telegram.org/"> Telegram</a><br>
+        </div>
+        <div class="col-md-3">
+          <h5>Get to Know Us</h5>
+          <a href="{% url 'aboutus'%}" onclick="scrollToSection('aboutUs')"> About Us</a><br>
+          <a href="#ourStory" onclick="scrollToSection('ourStory')">Our Story</a><br>
+          <a href="#missionValues" onclick="scrollToSection('missionValues')">Mission & Values</a><br>
+          <a href="#careers" onclick="scrollToSection('careers')">Careers</a><br>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid whatsapp-chat">
+      <a href="https://wa.me/+919010607010?text=I'm%20inquiring%20about%20the%20apartment%20listing" target="_blank"
+        class="whatsapp-chat">
+        <img src="{% static '/image/whatsapp.png' %}" alt="WhatsApp Logo" class="WhatsApp">
+      </a>
+    </div>
+  </footer>
+
+  <!-- jquary -->
+  <script src="{% static '/js/jquery-3.7.1.min.js' %}"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+  <script>
+    var availableTags = [];
+    $.ajax({
+      type: "GET",
+      url: "/product-list",
+
+      success: function (response) {
+        startAutocomplete(response);
+      }
+    });
+
+    function startAutocomplete(availableTags) {
+
+      $("#searchproducts").autocomplete({
+        source: availableTags
+      });
+
+    }
+
+    function scrollToSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+  </script>
+  <script src="{% static 'js\custom.js' %}"></script>
+  <!-- start to tawk.to chat -->
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6614479ca0c6737bd129aed8/1hqvjffot';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+  <!-- alertify JS -->
+
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+  <script src="{% static '/js/owl.carousel.min.js' %}"></script>
+
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script>
+  alertify.set('notifier','position','bottom-center')
+  {% for i in messages %}
+  alertify.success('{{i}}');
+  {%endfor%}
+</script>
+
+  <script src="" charset="utf-8">
+    var availableTags = []
+    $.ajax({
+      type: "GET",
+      url: "/product-list",
+
+      success: function (response) {
+        startAutocomplete(response);
+      }
+    });
+
+
+
+    function startAutocomplete(availableTags) {
+
+      $("#searchproducts").autocomplete({
+        source: availableTags
+      });
+
+    }
+  </script>
+  
+  {% block scripts %}
+
+  
+  {% endblock scripts %}
+  {% comment %} Razorpay checkout {% endcomment %}
+
+  
+  <script src="{% static '/js/checkout.js' %}"></script>
+
+  
+</body>
+
+
+</html>
